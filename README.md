@@ -1,10 +1,44 @@
-# My Personal Project
+# Lucas Hu's Personal Project
+## Anime/Manga/Manhwa Cataloging Desktop Application
 
-## A subtitle
+![Oreki Reading](https://bit.ly/3Gz5JVQ)
 
-A *bulleted* list:
-- item 1
-- item 2
-- item 3
+- *Knock, knock*
+- Who's there?
+- *Lucas*
+- Lucas who?
+- *That's me, Lucas Hu!*
 
-An example of text with **bold** and *italic* fonts.  
+Welcome to my Personal Project for CPSC 210! Sorry for including
+the bad joke, but it's kind of my trademark.
+
+### Project Proposal
+
+Here, I'll be giving a general description of what I seek to
+design for my personal project.
+
+Essentially, I want to design a program that can sort, manage,
+and allow the user to keep track of anime/manga/manhwa they've
+seen. Ideally, it would have similar functionality to online 
+catalogers such as MyAnimeList or Anilist, except that my cataloger
+would be a desktop application where the user manually enters
+anime/manga/manhwa entries. It should kind of be like a spoof
+of the recipe manager application project idea. My target audience 
+for this cataloging desktop application would be other people 
+who like to watch anime and read manga/manhwa like me.
+Many of my friends watch anime and read manga/manhwa, so I thought
+it would be a cool idea to make a cataloger and share it with them
+if they also wanted to track their reading/watching. 
+
+This project is of interest to me because I love anime/manga/manhwa! 
+However, the main reason I want to design my own cataloger with manual 
+entries despite also having a MyAnimeList (MAL) is because these online 
+catalogers do not include 99% of all **manhwa** (meaning I can't add 
+them to my catalogue). Manga and manhwa are both types of graphic 
+novels, the difference is that manga is Japanese and manhwa 
+is Korean. Manhwa is primarily published online in the form of 
+webcomics or webtoons, but MAL has a rule to only include works that
+have been physically published. I, myself, primarily only read manhwa
+nowadays which is the exact reason why I want to design my own
+cataloger and why it interests me so much. Sorry for the small rant!
+
