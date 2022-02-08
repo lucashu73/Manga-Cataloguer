@@ -14,10 +14,10 @@ the bad joke, but it's kind of my trademark.
 
 ### Project Proposal
 
-Here, I'll be giving a general description of what I seek to
-design for my personal project.
+*Here, I will give a general description of what I seek to
+design for my personal project.*
 
-Essentially, I want to design a program that can sort, manage,
+Essentially, I want to design an application that can sort, manage,
 and allow the user to keep track of anime/manga/manhwa they've
 seen. Ideally, it would have similar functionality to online 
 catalogers such as MyAnimeList or Anilist, except that my cataloger
@@ -42,3 +42,13 @@ have been physically published. I, myself, primarily only read manhwa
 nowadays which is the exact reason why I want to design my own
 cataloger and why it interests me so much. Sorry for the small rant!
 
+### User Stories
+
+*Here, I will list some user stories that I would like to add to my 
+application. Note that when I say manhwa, I mean any
+anime/manga/manhwa.*
+
+- As a user, I want to be able to add a manhwa to my catalog.
+- As a user, I want to be able to view a list of all the manhwa in my catalog.
+- As a user, I want to be able to select a manhwa and view its details (description, genre, etc.).
+- As a user, I want to be able to select a manhwa and rate it based on a 10-point scale.
