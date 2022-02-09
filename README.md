@@ -50,5 +50,5 @@ anime/manga/manhwa.*
 
 - As a user, I want to be able to add a manhwa to my catalog.
 - As a user, I want to be able to view a list of all the manhwa in my catalog.
-- As a user, I want to be able to select a manhwa and view its details (description, genre, etc.).
+- As a user, I want to be able to select a manhwa and view its details (title, description, etc.).
 - As a user, I want to be able to select a manhwa and rate it based on a 10-point scale.
