@@ -37,6 +37,42 @@ public class ManhwaCatalogue {
         return entry;
     }
 
+    // EFFECTS: gets manhwa with given title
+    public Manhwa getManhwa(String title) {
+        Manhwa manhwa = null;
+
+        for (Manhwa x : this.catalogue) {
+            if (Objects.equals(title, x.getTitle())) {
+                manhwa = x;
+            }
+        }
+        return manhwa;
+    }
+
+    // EFFECTS: gets list of manhwa in order
+    public String getCatalogue() {
+        String list = "";
+
+        for (Manhwa x : this.catalogue) {
+            list = list + x.getTitle() + "\n";
+        }
+        return list;
+    }
+
+    // EFFECTS: gets title, description, and rating of manhwa with given title
+    public String getDetails(String title) {
+        String details = "";
+
+        for (Manhwa x : this.catalogue) {
+            if (Objects.equals(title, x.getTitle())) {
+                details = "Title: " + x.getTitle() + "\n"
+                        + "Description: " + x.getDescription() + "\n"
+                        + "Rating: " + x.getRating();
+            }
+        }
+        return details;
+    }
+
     // EFFECTS: returns the number of manhwa in the catalogue
     public int length() {
         return catalogue.size();

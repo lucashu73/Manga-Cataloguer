@@ -2,6 +2,7 @@ package model;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class ManhwaTest {
@@ -35,10 +36,10 @@ class ManhwaTest {
     }
 
     @Test
-    public void testRateInvalid() {
-        testManhwa.rate(-5);
+    public void testRate() {
+        assertFalse(testManhwa.rate(-5));
         assertEquals(10, testManhwa.getRating());
-        testManhwa.rate(2);
+        assertTrue(testManhwa.rate(2));
         assertEquals(2, testManhwa.getRating());
     }
 

@@ -2,6 +2,7 @@ package model;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ManhwaCatalogueTest {
@@ -39,6 +40,36 @@ public class ManhwaCatalogueTest {
         assertEquals(2, testManhwaCatalogue.getEntryNumber("B"));
         assertEquals(3, testManhwaCatalogue.getEntryNumber("C"));
         assertEquals(-1, testManhwaCatalogue.getEntryNumber("D"));
+    }
+
+    @Test
+    public void testGetManhwa() {
+        Manhwa manhwa1 = new Manhwa("Overgeared", "dummy", 10);
+
+        testManhwaCatalogue.addManhwa(manhwa1);
+        assertNull(testManhwaCatalogue.getManhwa("NOT OVERGEARED"));
+        assertEquals(manhwa1, testManhwaCatalogue.getManhwa("Overgeared"));
+    }
+
+    @Test
+    public void testGetCatalogue() {
+        Manhwa manhwa1 = new Manhwa("Overgeared", "dummy", 10);
+        Manhwa manhwa2 = new Manhwa("Attack On Titan", "dummy", 7);
+
+        assertEquals("", testManhwaCatalogue.getCatalogue());
+        testManhwaCatalogue.addManhwa(manhwa1);
+        testManhwaCatalogue.addManhwa(manhwa2);
+        assertEquals("Overgeared\nAttack On Titan\n", testManhwaCatalogue.getCatalogue());
+    }
+
+    @Test
+    public void testGetDetails() {
+        Manhwa manhwa1 = new Manhwa("A", "aaa", 3);
+        testManhwaCatalogue.addManhwa(manhwa1);
+        assertEquals("Title: A\n" +
+                "Description: aaa\n" +
+                "Rating: 3", testManhwaCatalogue.getDetails("A"));
+        assertEquals("", testManhwaCatalogue.getDetails("B"));
     }
 
     @Test
