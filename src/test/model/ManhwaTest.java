@@ -39,6 +39,8 @@ class ManhwaTest {
     public void testRate() {
         assertFalse(testManhwa.rate(-5));
         assertEquals(10, testManhwa.getRating());
+        assertFalse(testManhwa.rate(11));
+        assertEquals(10, testManhwa.getRating());
         assertTrue(testManhwa.rate(2));
         assertEquals(2, testManhwa.getRating());
     }
