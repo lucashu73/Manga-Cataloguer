@@ -3,6 +3,7 @@ package ui;
 import model.ManhwaCatalogue;
 import model.Manhwa;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 // Used TellerApp as a reference to design ui
@@ -77,8 +78,23 @@ public class Cataloguer {
         System.out.print("Enter description of manhwa: ");
         String description = input.next();
 
-        System.out.print("Give this manhwa a rating (1-10): ");
-        int rating = input.nextInt();
+        int rating;
+
+        while (true) {
+            try {
+                System.out.print("Give this manhwa a rating (1-10): ");
+                rating = input.nextInt();
+                if (rating < 1 || rating > 10) {
+                    System.out.println("Invalid rating!");
+                    input.nextLine();
+                } else {
+                    break;
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid rating!");
+                input.nextLine();
+            }
+        }
 
         myList.addManhwa(new Manhwa(title, description, rating));
         System.out.print("Manhwa added!");
@@ -108,7 +124,6 @@ public class Cataloguer {
             System.out.print("No such manhwa exists!");
         } else {
             if (myList.getManhwa(title).rate(rating)) {
-
                 System.out.print("Rated!");
             } else {
                 System.out.print("Invalid rating!");
