@@ -2,6 +2,7 @@ package ui;
 
 import model.ManhwaCatalogue;
 import model.Manhwa;
+import model.exceptions.InvalidNumRatingException;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -71,6 +72,7 @@ public class Cataloguer {
     // MODIFIES: this
     // EFFECTS: add manhwa to list
     // found method nextLine() to use instead of nextDouble()
+    @SuppressWarnings("methodlength")
     private void doAddManhwa() {
         System.out.print("Enter title of manhwa: ");
         String title = input.next();
@@ -85,19 +87,21 @@ public class Cataloguer {
                 System.out.print("Give this manhwa a rating (1-10): ");
                 rating = input.nextInt();
                 if (rating < 1 || rating > 10) {
-                    System.out.println("Invalid rating!");
-                    input.nextLine();
+                    throw new InvalidNumRatingException();
                 } else {
                     break;
                 }
+            } catch (InvalidNumRatingException e) {
+                System.out.println("Invalid rating! Your rating must be from 1-10.");
+                input.nextLine();
             } catch (InputMismatchException e) {
-                System.out.println("Invalid rating!");
+                System.out.println("Invalid rating! Please enter a number.");
                 input.nextLine();
             }
         }
 
         myList.addManhwa(new Manhwa(title, description, rating));
-        System.out.print("Manhwa added!");
+        System.out.println("Manhwa added!");
     }
 
     // EFFECTS: view list of manhwa
@@ -109,7 +113,11 @@ public class Cataloguer {
     private void doDetailsManhwa() {
         System.out.print("Enter title of manhwa you would like to see details of: ");
         String title = input.next();
-        System.out.print(myList.getDetails(title));
+        if (myList.getDetails(title) == "") {
+            System.out.println("No such manhwa exists!");
+        } else {
+            System.out.println(myList.getDetails(title));
+        }
     }
 
     // MODIFIES: this
@@ -117,18 +125,24 @@ public class Cataloguer {
     private void doRateManhwa() {
         System.out.print("Enter title of manhwa you would like to rate: ");
         String title = input.next();
-        System.out.print("Enter rating: ");
-        int rating = input.nextInt();
-
         if (myList.getManhwa(title) == null) {
-            System.out.print("No such manhwa exists!");
+            System.out.println("No such manhwa exists!");
         } else {
-            if (myList.getManhwa(title).rate(rating)) {
-                System.out.print("Rated!");
-            } else {
-                System.out.print("Invalid rating!");
+            try {
+                System.out.print("Enter rating (1-10): ");
+                int rating = input.nextInt();
+
+                if (myList.getManhwa(title).rate(rating)) {
+                    System.out.println("Rated!");
+                } else {
+                    System.out.println("Invalid rating!");
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid rating!");
+                input.nextLine();
             }
         }
     }
+
 
 }

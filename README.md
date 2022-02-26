@@ -48,7 +48,15 @@ cataloger and why it interests me so much. Sorry for the small rant!
 application. Note that when I say manhwa, I mean any
 anime/manga/manhwa.*
 
-- As a user, I want to be able to add a manhwa to my catalog.
-- As a user, I want to be able to view a list of all the manhwa in my catalog.
-- As a user, I want to be able to select a manhwa and view its details (title, description, etc.).
-- As a user, I want to be able to select a manhwa and rate it based on a 10-point scale.
+Phase 1 User Stories:
+- As a user, I want to be able to add a manhwa to my catalogue. ✅
+- As a user, I want to be able to view a list of all the manhwa in my catalogue. ✅
+- As a user, I want to be able to select a manhwa and view its details (title, description, etc.). ✅
+- As a user, I want to be able to select a manhwa and rate it based on a 10-point scale. ✅
+
+Phase 2 User Stories:
+- As a user, when I select to quit the application, I want to be given the option to
+either save my catalogue to file or simply quit the application without saving.
+- As a user, when I start this application, I want to be given the option to either
+load my catalogue from file or create a new catalogue.
+

@@ -33,12 +33,12 @@ public class Manhwa {
         return rating;
     }
 
-    // REQUIRES: newRating <= 10 and newRating >= 0
+    // REQUIRES: newRating <= 10 and newRating > 0
     // MODIFIES: this
     // EFFECTS: if rating is valid, set to new rating and return true,
     //          otherwise rating stays the same and return false
     public boolean rate(int newRating) {
-        if (newRating <= 10 && newRating >= 0) {
+        if (newRating <= 10 && newRating > 0) {
             rating = rating + -1 * rating + newRating;
             return true;
         } else {
