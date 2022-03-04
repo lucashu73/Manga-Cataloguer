@@ -56,7 +56,7 @@ Phase 1 User Stories:
 
 Phase 2 User Stories:
 - As a user, when I select to quit the application, I want to be given the option to
-either save my catalogue to file or simply quit the application without saving.
+either save my catalogue to file or simply quit the application without saving. ✅
 - As a user, when I start this application, I want to be given the option to either
-load my catalogue from file or create a new catalogue.
+load my catalogue from file or create a new catalogue. ✅
 

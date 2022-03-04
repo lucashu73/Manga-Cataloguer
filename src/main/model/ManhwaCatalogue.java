@@ -1,6 +1,11 @@
 package model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.util.Collections;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Objects;
 
 // Represents a catalogue (list) of manhwa
@@ -76,6 +81,31 @@ public class ManhwaCatalogue {
     // EFFECTS: returns the number of manhwa in the catalogue
     public int length() {
         return catalogue.size();
+    }
+
+    // EFFECTS: returns an unmodifiable list of manhwa in this catalogue
+    public List<Manhwa> getListOfManhwa() {
+        return Collections.unmodifiableList(catalogue);
+    }
+
+    // Used JsonSerializationDemo as reference
+    // EFFECTS: converts catalogue to JSON
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("List", manhwasToJson());
+        return json;
+    }
+
+    // Used JsonSerializationDemo as reference
+    // EFFECTS: returns manhwas in this catalogue as a JSON array
+    private JSONArray manhwasToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Manhwa m : catalogue) {
+            jsonArray.put(m.toJson());
+        }
+
+        return jsonArray;
     }
 
 }

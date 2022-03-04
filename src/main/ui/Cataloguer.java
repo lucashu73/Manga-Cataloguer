@@ -2,8 +2,11 @@ package ui;
 
 import model.ManhwaCatalogue;
 import model.Manhwa;
-import model.exceptions.InvalidNumRatingException;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -12,11 +15,16 @@ import java.util.Scanner;
 // Manhwa/manga/anime cataloguer desktop application
 public class Cataloguer {
 
+    private static final String JSON_STORE = "./data/catalogue.json";
     private ManhwaCatalogue myList;
     private Scanner input;
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
 
     // EFFECTS: runs cataloguer
     public Cataloguer() {
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
         runCataloguer();
     }
 
@@ -30,6 +38,8 @@ public class Cataloguer {
         input = new Scanner(System.in);
         input.useDelimiter("\n");
 
+        runStartMenu();
+
         while (appRunning) {
             displayMenu();
             command = input.next();
@@ -41,6 +51,70 @@ public class Cataloguer {
                 processCommand(command);
             }
         }
+
+        runExitMenu();
+    }
+
+    // MODIFIES: this
+    // EFFECTS: processes user's start input
+    private void runStartMenu() {
+        boolean appStarting = true;
+        String startCommand = null;
+
+        while (appStarting) {
+            displayStartMenu();
+            startCommand = input.next();
+            startCommand = startCommand.toLowerCase();
+
+            if (startCommand.equals("y")) {
+                loadCatalogue();
+                System.out.println("List successfully loaded!");
+                appStarting = false;
+            } else if (startCommand.equals("n")) {
+                System.out.println("Create your own manhwa list!");
+                appStarting = false;
+            } else {
+                System.out.println("Your selection was not valid...");
+            }
+        }
+    }
+
+    // EFFECTS: displays start menu where the user has the option to load their list before starting
+    private void displayStartMenu() {
+        System.out.println("\nWould you like to load your list from file?");
+        System.out.println("\ty -> Yes");
+        System.out.println("\tn -> No");
+    }
+
+    // MODIFIES: this
+    // EFFECTS: processes user's exit input
+    private void runExitMenu() {
+        boolean appExiting = true;
+        String exitCommand = null;
+
+        while (appExiting) {
+            displayExitMenu();
+            exitCommand = input.next();
+            exitCommand = exitCommand.toLowerCase();
+
+            if (exitCommand.equals("y")) {
+                saveCatalogue();
+                System.out.println("List successfully saved. Goodbye!");
+                appExiting = false;
+            } else if (exitCommand.equals("n")) {
+                System.out.println("Goodbye!");
+                appExiting = false;
+            } else {
+                System.out.println("Your selection was not valid...");
+            }
+        }
+    }
+
+    // EFFECTS: displays exit menu where the user has the option to save their list before exiting
+    private void displayExitMenu() {
+        System.out.println("\nWould you like to save your list to file before exiting?");
+        System.out.println("\ty -> Yes");
+        System.out.println("\tn -> No");
     }
 
     // EFFECTS: displays menu of commands the user can input
@@ -50,6 +124,8 @@ public class Cataloguer {
         System.out.println("\tv -> View list of your manhwa");
         System.out.println("\td -> Select a manhwa to view its details");
         System.out.println("\tr -> Select a manhwa to rate it");
+        System.out.println("\ts -> Save list of your manhwa to file");
+        System.out.println("\tl -> Load list of your manhwa from file");
         System.out.println("\tq -> Quit");
     }
 
@@ -64,6 +140,10 @@ public class Cataloguer {
             doDetailsManhwa();
         } else if (command.equals("r")) {
             doRateManhwa();
+        } else if (command.equals("s")) {
+            saveCatalogue();
+        } else if (command.equals("l")) {
+            loadCatalogue();
         } else {
             System.out.println("Your selection was not valid...");
         }
@@ -72,7 +152,6 @@ public class Cataloguer {
     // MODIFIES: this
     // EFFECTS: add manhwa to list
     // found method nextLine() to use instead of nextDouble()
-    @SuppressWarnings("methodlength")
     private void doAddManhwa() {
         System.out.print("Enter title of manhwa: ");
         String title = input.next();
@@ -87,15 +166,13 @@ public class Cataloguer {
                 System.out.print("Give this manhwa a rating (1-10): ");
                 rating = input.nextInt();
                 if (rating < 1 || rating > 10) {
-                    throw new InvalidNumRatingException();
+                    System.out.println("Invalid rating!");
+                    input.nextLine();
                 } else {
                     break;
                 }
-            } catch (InvalidNumRatingException e) {
-                System.out.println("Invalid rating! Your rating must be from 1-10.");
-                input.nextLine();
             } catch (InputMismatchException e) {
-                System.out.println("Invalid rating! Please enter a number.");
+                System.out.println("Invalid rating!");
                 input.nextLine();
             }
         }
@@ -141,6 +218,31 @@ public class Cataloguer {
                 System.out.println("Invalid rating!");
                 input.nextLine();
             }
+        }
+    }
+
+    // Used JsonSerializationDemo as reference
+    // EFFECTS: saves the catalogue to file
+    private void saveCatalogue() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(myList);
+            jsonWriter.close();
+            System.out.println("Saved to " + JSON_STORE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
+        }
+    }
+
+    // Used JsonSerializationDemo as reference
+    // MODIFIES: this
+    // EFFECTS: loads the catalogue to file
+    private void loadCatalogue() {
+        try {
+            myList = jsonReader.read();
+            System.out.println("Loaded from " + JSON_STORE);
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE);
         }
     }
 

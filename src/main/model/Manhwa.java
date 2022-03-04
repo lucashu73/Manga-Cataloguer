@@ -1,5 +1,7 @@
 package model;
 
+import org.json.JSONObject;
+
 // Represents a manhwa/manga/anime having a title, a description, and 10-point scale rating
 public class Manhwa {
     private String title;
@@ -44,6 +46,16 @@ public class Manhwa {
         } else {
             return false;
         }
+    }
+
+    // Used JsonSerializationDemo as reference
+    // EFFECTS: converts manhwa to JSON
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("Title", title);
+        json.put("Description", description);
+        json.put("Rating", rating);
+        return json;
     }
 
 }
