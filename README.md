@@ -60,3 +60,6 @@ either save my catalogue to file or simply quit the application without saving. 
 - As a user, when I start this application, I want to be given the option to either
 load my catalogue from file or create a new catalogue. ✅
 
+Phase 3:
+- Add GUI ✅
+
