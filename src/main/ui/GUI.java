@@ -264,6 +264,7 @@ public class GUI extends JFrame implements ActionListener {
 
                     if (myList.getManhwa(title).rate(rating)) {
                         displayText.setText("Rated!");
+                        rateNameTextField.setText("");
                         rateRatingTextField.setText("");
                     } else {
                         displayText.setText("Invalid rating!");
