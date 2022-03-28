@@ -43,6 +43,7 @@ public class GUI extends JFrame implements ActionListener {
     private JsonWriter jsonWriter;
     private JsonReader jsonReader;
 
+    // EFFECTS: constructs GUI with all panels and components in frame
     @SuppressWarnings({"checkstyle:MethodLength", "checkstyle:SuppressWarnings"})
     public GUI() {
 
@@ -215,6 +216,7 @@ public class GUI extends JFrame implements ActionListener {
         new GUI();
     }
 
+    // EFFECTS: takes in a certain event and performs appropriate action
     @SuppressWarnings({"checkstyle:MethodLength", "checkstyle:SuppressWarnings"})
     @Override
     public void actionPerformed(ActionEvent e) {
