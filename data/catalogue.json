@@ -1,13 +1,13 @@
 {"List": [
     {
-        "Description": "This dude is really overgeared",
-        "Rating": 9,
+        "Description": "This guy is really overgeared",
+        "Rating": 10,
         "Title": "Overgeared"
     },
     {
-        "Description": "Zombies... kinda?",
+        "Description": "Monsters?",
         "Rating": 10,
-        "Title": "Sweet Home"
+        "Title": "Sweet home"
     },
     {
         "Description": "Isekai",
@@ -15,13 +15,8 @@
         "Title": "The beginning after the end"
     },
     {
-        "Description": "afljdkjdsfa",
-        "Rating": 7,
-        "Title": "Four"
-    },
-    {
-        "Description": "jfdklas",
-        "Rating": 8,
-        "Title": "Five"
+        "Description": "Thriller",
+        "Rating": 9,
+        "Title": "Pigpen"
     }
 ]}

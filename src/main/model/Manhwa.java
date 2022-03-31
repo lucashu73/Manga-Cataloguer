@@ -42,6 +42,7 @@ public class Manhwa {
     public boolean rate(int newRating) {
         if (newRating <= 10 && newRating > 0) {
             rating = rating + -1 * rating + newRating;
+            EventLog.getInstance().logEvent(new Event("Rated " + title + " a " + newRating));
             return true;
         } else {
             return false;

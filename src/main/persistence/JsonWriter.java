@@ -32,6 +32,7 @@ public class JsonWriter {
     public void write(ManhwaCatalogue mc) {
         JSONObject json = mc.toJson();
         saveToFile(json.toString(TAB));
+        model.EventLog.getInstance().logEvent(new model.Event("Saved " + mc + "to " + destination));
     }
 
     // MODIFIES: this

@@ -27,6 +27,7 @@ public class JsonReader {
     public ManhwaCatalogue read() throws IOException {
         String jsonData = readFile(source);
         JSONObject jsonObject = new JSONObject(jsonData);
+        model.EventLog.getInstance().logEvent(new model.Event("Loaded list from " + source));
         return parseManhwaCatalogue(jsonObject);
     }
 

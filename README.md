@@ -63,3 +63,27 @@ load my catalogue from file or create a new catalogue. ✅
 Phase 3:
 - Add GUI ✅
 
+Phase 4: 
+- Phase 4: Task 2 - Sample of events logged
+
+        Wed Mar 30 22:45:44 PDT 2022
+        Loaded list from ./data/catalogue.json
+        Wed Mar 30 22:45:44 PDT 2022 
+        Added manhwa: Overgeared
+        Wed Mar 30 22:45:44 PDT 2022
+        Added manhwa: Sweet home
+        Wed Mar 30 22:45:44 PDT 2022
+        Added manhwa: The beginning after the end
+        Wed Mar 30 22:45:45 PDT 2022
+        Retrieved list
+        Wed Mar 30 22:45:51 PDT 2022
+        Retrieved details of the manhwa Overgeared
+        Wed Mar 30 22:45:51 PDT 2022
+        Retrieved details of the manhwa Overgeared
+        Wed Mar 30 22:45:58 PDT 2022
+        Rated Overgeared a 10
+        Wed Mar 30 22:46:15 PDT 2022
+        Added manhwa: Pigpen
+        Wed Mar 30 22:46:18 PDT 2022
+        Saved model.ManhwaCatalogue@723c5688to ./data/catalogue.json
+

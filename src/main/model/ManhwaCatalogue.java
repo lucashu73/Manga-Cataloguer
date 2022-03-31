@@ -22,6 +22,7 @@ public class ManhwaCatalogue {
     // EFFECTS: add manhwa to end of queue
     public void addManhwa(Manhwa manhwa) {
         catalogue.addLast(manhwa);
+        EventLog.getInstance().logEvent(new Event("Added manhwa: " + manhwa.getTitle()));
     }
 
     // EFFECTS: if there is a manhwa that has the given title,
@@ -61,6 +62,7 @@ public class ManhwaCatalogue {
         for (Manhwa x : this.catalogue) {
             list = list + x.getTitle() + "\n";
         }
+        EventLog.getInstance().logEvent(new Event("Retrieved list"));
         return list;
     }
 
@@ -74,6 +76,9 @@ public class ManhwaCatalogue {
                         + "Description: " + x.getDescription() + "\n"
                         + "Rating: " + x.getRating();
             }
+        }
+        if (!details.equals("")) {
+            EventLog.getInstance().logEvent(new Event("Retrieved details of the manhwa " + title));
         }
         return details;
     }

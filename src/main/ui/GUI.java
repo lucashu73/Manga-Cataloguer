@@ -1,5 +1,7 @@
 package ui;
 
+import model.Event;
+import model.EventLog;
 import model.Manhwa;
 import model.ManhwaCatalogue;
 import persistence.JsonReader;
@@ -311,6 +313,9 @@ public class GUI extends JFrame implements ActionListener {
                 } catch (FileNotFoundException f) {
                     displayText.setText("Unable to write to file:" + JSON_STORE);
                 }
+            }
+            for (Event event: EventLog.getInstance()) {
+                System.out.println(event);
             }
             System.exit(0);
         }
