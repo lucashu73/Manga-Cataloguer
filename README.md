@@ -85,5 +85,5 @@ Phase 4:
         Wed Mar 30 22:46:15 PDT 2022
         Added manhwa: Pigpen
         Wed Mar 30 22:46:18 PDT 2022
-        Saved model.ManhwaCatalogue@723c5688to ./data/catalogue.json
+        Saved list to ./data/catalogue.json
 
