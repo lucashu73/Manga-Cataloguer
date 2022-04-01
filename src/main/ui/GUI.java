@@ -314,7 +314,7 @@ public class GUI extends JFrame implements ActionListener {
                     displayText.setText("Unable to write to file:" + JSON_STORE);
                 }
             }
-            for (Event event: EventLog.getInstance()) {
+            for (Event event : EventLog.getInstance()) {
                 System.out.println(event);
             }
             System.exit(0);

@@ -64,7 +64,8 @@ Phase 3:
 - Add GUI ✅
 
 Phase 4: 
-- Phase 4: Task 2 - Sample of events logged
+
+    Phase 4: Task 2 - Sample of events logged
 
         Wed Mar 30 22:45:44 PDT 2022
         Loaded list from ./data/catalogue.json
@@ -86,4 +87,18 @@ Phase 4:
         Added manhwa: Pigpen
         Wed Mar 30 22:46:18 PDT 2022
         Saved list to ./data/catalogue.json
+
+Phase 4: Task 3 - Changes I would have liked to make
+- I would have liked to make an exceptions package with my
+own specific exception classes instead of using Java's default exceptions.
+- I would have liked to change Manhwa to extend an abstract class such as
+"FormOfMedia" because that way it would make it much easier for me to create other
+classes in the future such as "Manga" or "Anime" which would also extend "FormOfMedia".
+This would allow me to add manga and anime (other forms of media) to my catalogue.
+- I would have liked to change ManhwaCatalogue to extend an abstract class such as
+"Catalogue". This goes by the same logic as the last change I listed because 
+in the future, I may want to have separate lists of varying forms of media.
+- I would have liked to allow my GUI to make multiple lists instead of just one
+  (although this would require adding more features).
+
 
