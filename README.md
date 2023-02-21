@@ -9,7 +9,7 @@
 - Lucas who?
 - *That's me, Lucas Hu!*
 
-Welcome to my Personal Project for CPSC 210! Sorry for including
+Welcome to my Personal Project for `C̲P̲S̲C̲ ̲2̲1̲0`! Sorry for including
 the bad joke, but it's kind of my trademark.
 
 ### Project Proposal
