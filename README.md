@@ -9,7 +9,7 @@
 - Lucas who?
 - *That's me, Lucas Hu!*
 
-Welcome to my Personal Project for `C̲P̲S̲C̲ ̲2̲1̲0`! Sorry for including
+Welcome to my Personal Project for `C̲P̲S̲C̲ ̲2̲1̲0 - S̲o̲f̲t̲w̲a̲r̲e̲ C̲o̲n̲s̲t̲r̲u̲c̲t̲i̲o̲n̲`! Sorry for including
 the bad joke, but it's kind of my trademark.
 
 ### Project Proposal
